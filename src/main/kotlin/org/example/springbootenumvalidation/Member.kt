@@ -7,6 +7,8 @@ data class Member(
   val id: Long,
   @field:NotNull(message = "name is required")
   val name: String,
-  @field:ValidEnum(enumClass = Status::class, message = "status is invalid")
-  val status: Status,
+//  @field:EnumValid(enumClass = Status::class, message = "status is invalid")
+//  @EnumNamePattern(regexp = "NEW|DEFAULT")
+  @field:ValueOfEnum(enumClass = Status::class, message = "status is invalid")
+  val status: String,
 )
